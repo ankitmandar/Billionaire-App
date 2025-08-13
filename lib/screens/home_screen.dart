@@ -18,9 +18,28 @@ class HomeScreen extends StatelessWidget {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
-            Text('Balance'),
-            ElevatedButton(onPressed: afunction, child: Text('Buttom ')),
+            Expanded(
+              flex: 9,
+              child: Column(
+                spacing: 16,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text('Balance Part'), Text('0')],
+              ),
+            ),
+
+            Expanded(
+              flex: 1,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red[700],
+                  minimumSize: Size(double.infinity, double.infinity),
+                ),
+                onPressed: afunction,
+                child: Text('Add Money'),
+              ),
+            ),
           ],
         ),
       ),
