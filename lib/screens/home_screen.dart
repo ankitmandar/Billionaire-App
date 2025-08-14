@@ -1,3 +1,5 @@
+import 'package:billionaire_app/balance_view.dart';
+import 'package:billionaire_app/buttoms/add_money_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,26 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
           children: [
-            Expanded(
-              flex: 9,
-              child: Column(
-                spacing: 16,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('Balance Part'), Text('$balance')],
-              ),
-            ),
-
-            Expanded(
-              flex: 1,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red[700],
-                  minimumSize: Size(double.infinity, double.infinity),
-                ),
-                onPressed: addMoney,
-                child: Text('Add Money'),
-              ),
-            ),
+            BalanceView(balance: balance),
+            AddMoneyButtom(addMoneyFunction: addMoney),
           ],
         ),
       ),
