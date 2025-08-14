@@ -15,11 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       balance = balance + 500;
     });
-    print('Balance added');
-
+    //Obtain shared preferences.
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await prefs.setDouble('balance', balance);
+  }
+
+  @override
+  void initState() {
+    loadBalance();
+    super.initState();
   }
 
   void loadBalance() async {
@@ -48,14 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 spacing: 16,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Balance Part'),
-                  Text('$balance'),
-                  ElevatedButton(
-                    onPressed: loadBalance,
-                    child: Text('Add Money'),
-                  ),
-                ],
+                children: [Text('Balance Part'), Text('$balance')],
               ),
             ),
 
